@@ -1,1 +1,235 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1E2433, #243042, #1E2433);
+  color: #DCE3EE;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.site-header p,
+.muted {
+  color: #A5B4CC;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab-button,
+.action-button,
+.node {
+  cursor: pointer;
+  border: none;
+}
+
+.tab-button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  color: #DCE3EE;
+}
+
+.tab-button.active {
+  background: #5DD3DA;
+  color: #1E2433;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.grid.two-col {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.card {
+  background: rgba(57, 65, 86, 0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.identity-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #5DD3DA, #00C087);
+  color: #1E2433;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.section-block {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(30, 36, 51, 0.45);
+}
+
+.building {
+  border: 1px solid rgba(93, 211, 218, 0.25);
+}
+
+.culture {
+  border: 1px solid rgba(127, 190, 207, 0.25);
+}
+
+.nonnegotiables {
+  border: 1px solid rgba(201, 214, 224, 0.2);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #5DD3DA;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(127,190,207,0.12);
+  border: 1px solid rgba(127,190,207,0.2);
+  font-size: 12px;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.bullet-list li {
+  margin-bottom: 8px;
+}
+
+.network-map {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 24px auto 0;
+  border-radius: 50%;
+}
+
+.center-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 88px;
+  height: 88px;
+  margin-left: -44px;
+  margin-top: -44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5DD3DA, #00C087);
+  color: #1E2433;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 0 30px rgba(93,211,218,0.25);
+}
+
+.node {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1E2433;
+  color: #DCE3EE;
+  border: 2px solid #5DD3DA;
+}
+
+.node-1 { top: 20px; left: 182px; }
+.node-2 { top: 95px; right: 48px; }
+.node-3 { bottom: 95px; right: 48px; }
+.node-4 { bottom: 20px; left: 182px; }
+.node-5 { bottom: 95px; left: 48px; }
+.node-6 { top: 95px; left: 48px; }
+
+.flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.flow-item {
+  background: rgba(30, 36, 51, 0.45);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.action-button {
+  margin-top: 12px;
+  background: #5DD3DA;
+  color: #1E2433;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .grid.two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .network-map {
+    width: 320px;
+    height: 320px;
+  }
+
+  .node-1 { top: 10px; left: 132px; }
+  .node-2 { top: 65px; right: 22px; }
+  .node-3 { bottom: 65px; right: 22px; }
+  .node-4 { bottom: 10px; left: 132px; }
+  .node-5 { bottom: 65px; left: 22px; }
+  .node-6 { top: 65px; left: 22px; }
+}
