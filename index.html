@@ -3,157 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mundnova</title>
+  <title>Rubikon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-shell">
+  <div class="noise"></div>
+
+  <div class="site-shell">
     <header class="site-header">
-      <div>
-        <h1>Mundnova</h1>
-        <p>A network system for people, skills, ideas, and collaborators</p>
+      <div class="brand-block">
+        <div class="brand-mark">Rubikon</div>
+        <p class="brand-sub">
+          A network system for people, skills, ideas, and collaborators.
+        </p>
       </div>
 
-      <nav class="nav-tabs">
-        <button class="tab-button active" data-view="identity">Identity</button>
-        <button class="tab-button" data-view="network">Connection Map</button>
-        <button class="tab-button" data-view="flows">FlowBoard</button>
+      <nav class="top-nav">
+        <button class="nav-button active" data-view="identity">Identity</button>
+        <button class="nav-button" data-view="network">Connection Map</button>
+        <button class="nav-button" data-view="flowboard">FlowBoard</button>
       </nav>
     </header>
 
-    <main class="main-content">
+    <main>
+      <!-- IDENTITY -->
       <section id="identity-view" class="view active">
-        <div class="grid two-col">
-          <div class="card">
-            <div class="identity-top">
-              <div class="avatar">RM</div>
+        <div class="hero-block">
+          <p class="eyebrow">Rubikon Identity Layer</p>
+          <h1>
+            Know what a person is building, how they collaborate, and what they will not compromise on.
+          </h1>
+        </div>
+
+        <div class="identity-layout">
+          <article class="identity-card">
+            <div class="identity-head">
+              <div class="identity-avatar">RM</div>
               <div>
                 <h2>Rodrigo Mendez Carrillo</h2>
-                <p>@rodrigomendez · Nuremberg, Germany</p>
+                <p class="muted">@rodrigomendez · Nuremberg</p>
               </div>
             </div>
 
-            <div class="section-block building">
-              <p class="eyebrow">What they are building</p>
-              <h3>Mundnova</h3>
+            <section class="identity-panel identity-panel-building">
+              <p class="section-label">What they are building</p>
+              <h3>Rubikon</h3>
               <p>
-                A network system for people, skills, ideas, and collaborators
-                to move through digital ecosystems with more clarity, relevance,
-                and momentum.
+                A network system for people, skills, ideas, and collaborators to move through digital ecosystems with more clarity, relevance, and momentum.
               </p>
-            </div>
+            </section>
 
-            <div class="section-block culture">
-              <p class="eyebrow">Culture</p>
-              <div class="tag-row">
-                <span class="tag">High-agency</span>
-                <span class="tag">Cross-cultural</span>
-                <span class="tag">Direct but thoughtful</span>
-                <span class="tag">Human-centered ambition</span>
-                <span class="tag">Creative seriousness</span>
+            <section class="identity-panel identity-panel-culture">
+              <p class="section-label">Culture</p>
+              <div class="chip-row">
+                <span class="chip">High-agency</span>
+                <span class="chip">Cross-cultural</span>
+                <span class="chip">Direct but thoughtful</span>
+                <span class="chip">Creative seriousness</span>
+                <span class="chip">Human-centered ambition</span>
               </div>
-            </div>
+            </section>
 
-            <div class="section-block nonnegotiables">
-              <p class="eyebrow">Non-negotiables</p>
-              <ul class="bullet-list">
+            <section class="identity-panel identity-panel-nonnegotiables">
+              <p class="section-label">Non-negotiables</p>
+              <ul class="nonnegotiables-list">
                 <li>No ghosting</li>
                 <li>Clear communication</li>
                 <li>Async-friendly first</li>
                 <li>Reliability over hype</li>
                 <li>Mutual respect in collaboration</li>
               </ul>
-            </div>
-          </div>
+            </section>
+          </article>
 
-          <div class="card">
-            <h3>Why identity matters here</h3>
+          <aside class="side-note">
+            <p class="eyebrow">Essential, not performative</p>
+            <h3>Rubikon is not a résumé.</h3>
             <p>
-              Mundnova is not a résumé. It is a decision surface for
-              collaboration. It shows what a person is building, their culture,
-              and their non-negotiables.
+              It is a decision surface for collaboration. The goal is not to display everything
+              about a person. The goal is to display what matters before time is wasted.
             </p>
-          </div>
+
+            <div class="mini-rule"></div>
+
+            <p>
+              A strong identity here is narrow, intentional, and current.
+            </p>
+          </aside>
         </div>
       </section>
 
+      <!-- CONNECTION MAP -->
       <section id="network-view" class="view">
-        <div class="grid two-col">
-          <div class="card">
-            <h2>Connection Map</h2>
-            <p class="muted">
-              Click a collaborator to inspect what they are building.
-            </p>
+        <div class="hero-block">
+          <p class="eyebrow">Connection Map</p>
+          <h1>
+            Explore your top six collaborators through a living spherical web.
+          </h1>
+        </div>
 
-            <div class="network-map">
-              <div class="center-node">You</div>
+        <div class="network-layout">
+          <article class="network-stage-card">
+            <div class="network-topbar">
+              <div>
+                <h2>Top Six Connections</h2>
+                <p class="muted">Hover and click to inspect the active collaboration ring.</p>
+              </div>
+            </div>
 
-              <button class="node node-1" data-name="Lina Hoffmann" data-role="Product Strategist" data-city="Berlin" data-building="A mentor matching layer for technical founders">
+            <div class="network-stage" id="network-stage">
+              <svg class="network-lines" viewBox="0 0 600 600" preserveAspectRatio="none">
+                <line id="line-center-1" x1="300" y1="300" x2="300" y2="95" />
+                <line id="line-center-2" x1="300" y1="300" x2="478" y2="195" />
+                <line id="line-center-3" x1="300" y1="300" x2="478" y2="405" />
+                <line id="line-center-4" x1="300" y1="300" x2="300" y2="505" />
+                <line id="line-center-5" x1="300" y1="300" x2="122" y2="405" />
+                <line id="line-center-6" x1="300" y1="300" x2="122" y2="195" />
+
+                <line x1="300" y1="95" x2="478" y2="195" />
+                <line x1="478" y1="195" x2="478" y2="405" />
+                <line x1="478" y1="405" x2="300" y2="505" />
+                <line x1="300" y1="505" x2="122" y2="405" />
+                <line x1="122" y1="405" x2="122" y2="195" />
+                <line x1="122" y1="195" x2="300" y2="95" />
+              </svg>
+
+              <div class="orbital-grid orbital-grid-1"></div>
+              <div class="orbital-grid orbital-grid-2"></div>
+
+              <div class="center-orb" id="center-orb">
+                <span>You</span>
+              </div>
+
+              <button class="map-node node-1" data-id="1" data-name="Lina Hoffmann" data-role="Product Strategist" data-city="Berlin" data-building="A mentor matching layer for technical founders." data-culture="Systems-minded, clear, product-rigorous">
                 LH
               </button>
-              <button class="node node-2" data-name="Marco Silva" data-role="Community Builder" data-city="Lisbon" data-building="A curated founder community for southern Europe">
+
+              <button class="map-node node-2" data-id="2" data-name="Marco Silva" data-role="Community Builder" data-city="Lisbon" data-building="A curated founder community for southern Europe." data-culture="Warm, kinetic, socially intelligent">
                 MS
               </button>
-              <button class="node node-3" data-name="Nina Patel" data-role="Research Collaborator" data-city="Munich" data-building="A mobility intelligence concept for cities">
+
+              <button class="map-node node-3" data-id="3" data-name="Nina Patel" data-role="Research Collaborator" data-city="Munich" data-building="A mobility intelligence concept for cities." data-culture="Analytical, calm, structured">
                 NP
               </button>
-              <button class="node node-4" data-name="Adrian Costa" data-role="Designer" data-city="Barcelona" data-building="A design language for collaborative products">
+
+              <button class="map-node node-4" data-id="4" data-name="Adrian Costa" data-role="Designer" data-city="Barcelona" data-building="A design language for collaborative products." data-culture="Visual, conceptual, exacting">
                 AC
               </button>
-              <button class="node node-5" data-name="Sofia Klein" data-role="Operations Lead" data-city="Amsterdam" data-building="A smoother system for startup program operations">
+
+              <button class="map-node node-5" data-id="5" data-name="Sofia Klein" data-role="Operations Lead" data-city="Amsterdam" data-building="A smoother system for startup program operations." data-culture="Reliable, operational, low-ego">
                 SK
               </button>
-              <button class="node node-6" data-name="Jonas Meyer" data-role="Ecosystem Connector" data-city="Zurich" data-building="An ecosystem map for startup-to-corporate collaboration">
+
+              <button class="map-node node-6" data-id="6" data-name="Jonas Meyer" data-role="Ecosystem Connector" data-city="Zurich" data-building="An ecosystem map for startup-to-corporate collaboration." data-culture="Connector-minded, strategic, long-term">
                 JM
               </button>
             </div>
-          </div>
+          </article>
 
-          <div class="card" id="collaborator-panel">
+          <aside class="network-detail-card" id="network-detail-card">
+            <p class="eyebrow">Selected Connection</p>
             <h3>Select a collaborator</h3>
             <p class="muted">
-              Click one of the six nodes to see their details here.
+              Hover or click a node in the connection map to inspect what they are building.
             </p>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section id="flows-view" class="view">
-        <div class="grid two-col">
-          <div class="card">
-            <h2>FlowBoard</h2>
-            <p class="muted">
-              A routing layer for people, skills, ideas, and requests.
-            </p>
+      <!-- FLOWBOARD -->
+      <section id="flowboard-view" class="view">
+        <div class="hero-block">
+          <p class="eyebrow">FlowBoard</p>
+          <h1>
+            See what is moving through your network now — people, ideas, signals, and requests.
+          </h1>
+        </div>
 
-            <div class="flow-list">
-              <div class="flow-item">
-                <h3>Berlin-based founder looking for a product thinking partner</h3>
-                <p>Matches your focus on startup ecosystems and product strategy.</p>
-                <button class="action-button">Request intro</button>
-              </div>
-
-              <div class="flow-item">
-                <h3>Community design support needed for innovation program</h3>
-                <p>Fits your experience with startup communities and coordination.</p>
-                <button class="action-button">Offer help</button>
-              </div>
-
-              <div class="flow-item">
-                <h3>Cross-border student network concept gaining traction</h3>
-                <p>Strong overlap with identity, mobility, and international connection themes.</p>
-                <button class="action-button">Join thread</button>
-              </div>
+        <div class="flowboard-layout">
+          <article class="flow-column">
+            <div class="flow-column-head">
+              <h2>Active Signals</h2>
+              <p class="muted">What is worth acting on next.</p>
             </div>
-          </div>
 
-          <div class="card">
-            <h3>What the FlowBoard does</h3>
+            <div class="signal-card">
+              <p class="signal-type">Person</p>
+              <h3>Berlin-based founder looking for a product thinking partner</h3>
+              <p>
+                Strong match with startup ecosystems, narrative framing, and strategic product positioning.
+              </p>
+              <button class="ghost-action">Request intro</button>
+            </div>
+
+            <div class="signal-card">
+              <p class="signal-type">Idea</p>
+              <h3>Cross-border student network concept gaining traction</h3>
+              <p>
+                Direct thematic overlap with mobility, belonging, international communities, and systems thinking.
+              </p>
+              <button class="ghost-action">Join thread</button>
+            </div>
+
+            <div class="signal-card">
+              <p class="signal-type">Request</p>
+              <h3>Innovation program needs community design support</h3>
+              <p>
+                Matches cultural alignment around high-agency collaboration and direct communication.
+              </p>
+              <button class="ghost-action">Offer help</button>
+            </div>
+          </article>
+
+          <aside class="flow-side">
+            <p class="eyebrow">What FlowBoard means</p>
+            <h3>Not a feed. A routing surface.</h3>
             <p>
-              It shows what is moving through your network right now and what is
-              worth acting on next.
+              FlowBoard should show what is moving through your network and why it is relevant now.
             </p>
-          </div>
+            <div class="mini-rule"></div>
+            <p>
+              Later, this becomes the layer that powers pings, introductions, and opportunity matching.
+            </p>
+          </aside>
         </div>
       </section>
     </main>
