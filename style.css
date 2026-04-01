@@ -318,6 +318,29 @@ body {
   height: 560px;
 }
 
+.orbital-grid-3 {
+  width: 660px;
+  height: 660px;
+  border-color: rgba(255,255,255,0.03);
+}
+
+.second-ring {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 18px rgba(255,255,255,0.03);
+}
+
+.second-ring-1 { top: 32px; left: 329px; }
+.second-ring-2 { top: 140px; right: 18px; }
+.second-ring-3 { bottom: 140px; right: 18px; }
+.second-ring-4 { bottom: 32px; left: 329px; }
+.second-ring-5 { bottom: 140px; left: 18px; }
+.second-ring-6 { top: 140px; left: 18px; }
+
 .center-orb {
   position: absolute;
   width: 112px;
@@ -341,37 +364,61 @@ body {
 
 .map-node {
   position: absolute;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.04);
+  width: 74px;
+  height: 92px;
+  border: none;
+  background: transparent;
   color: var(--text);
-  backdrop-filter: blur(12px);
   cursor: pointer;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  transition: transform 180ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .map-node:hover,
 .map-node.active {
-  transform: scale(1.08);
+  transform: scale(1.06);
+}
+
+.node-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 0 28px rgba(110,144,183,0.08);
+  font-size: 1.05rem;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.map-node:hover .node-icon,
+.map-node.active .node-icon {
   border-color: rgba(110,144,183,0.45);
   background: rgba(110,144,183,0.10);
   box-shadow: 0 0 28px rgba(110,144,183,0.22);
 }
 
-.node-1 { top: 58px; left: 308px; }
-.node-2 { top: 185px; right: 92px; }
-.node-3 { bottom: 185px; right: 92px; }
-.node-4 { bottom: 58px; left: 308px; }
-.node-5 { bottom: 185px; left: 92px; }
-.node-6 { top: 185px; left: 92px; }
+.node-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.node-1 { top: 52px; left: 301px; }
+.node-2 { top: 182px; right: 85px; }
+.node-3 { bottom: 182px; right: 85px; }
+.node-4 { bottom: 52px; left: 301px; }
+.node-5 { bottom: 182px; left: 85px; }
+.node-6 { top: 182px; left: 85px; }
 
 .network-detail-card h4 {
   margin: 10px 0 6px;
@@ -396,6 +443,49 @@ body {
   margin-bottom: 18px;
 }
 
+.search-shell {
+  margin-bottom: 16px;
+}
+
+.search-shell input {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: var(--text);
+  border-radius: 18px;
+  padding: 16px 18px;
+  font-size: 0.98rem;
+  outline: none;
+}
+
+.search-shell input:focus {
+  border-color: rgba(110,144,183,0.35);
+  background: rgba(110,144,183,0.05);
+}
+
+.quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quick-tag {
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.quick-tag:hover {
+  color: var(--text);
+  border-color: rgba(110,144,183,0.35);
+  background: rgba(110,144,183,0.08);
+}
+
 .signal-card {
   padding: 20px;
   border-radius: 22px;
@@ -410,7 +500,12 @@ body {
   border-color: rgba(110,144,183,0.22);
 }
 
-.signal-type {
+.signal-card.hidden {
+  display: none;
+}
+
+.signal-type,
+.pipeline-type {
   margin: 0 0 10px;
   color: var(--blue);
   text-transform: uppercase;
@@ -418,14 +513,17 @@ body {
   font-size: 0.75rem;
 }
 
-.signal-card h3 {
+.signal-card h3,
+.pipeline-card h4 {
   margin: 0 0 12px;
   font-size: 1.22rem;
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
 
-.signal-card p {
+.signal-card p,
+.pipeline-card p,
+.flow-side p {
   color: #d8dbe2;
   line-height: 1.8;
 }
@@ -446,6 +544,23 @@ body {
   border-color: rgba(110,144,183,0.40);
 }
 
+.pipeline-block {
+  margin-bottom: 20px;
+}
+
+.pipeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pipeline-card {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
 @media (max-width: 1100px) {
   .identity-layout,
   .network-layout,
@@ -458,12 +573,19 @@ body {
     height: 560px;
   }
 
-  .node-1 { top: 38px; left: 248px; }
-  .node-2 { top: 150px; right: 62px; }
-  .node-3 { bottom: 150px; right: 62px; }
-  .node-4 { bottom: 38px; left: 248px; }
-  .node-5 { bottom: 150px; left: 62px; }
-  .node-6 { top: 150px; left: 62px; }
+  .node-1 { top: 34px; left: 245px; }
+  .node-2 { top: 140px; right: 58px; }
+  .node-3 { bottom: 140px; right: 58px; }
+  .node-4 { bottom: 34px; left: 245px; }
+  .node-5 { bottom: 140px; left: 58px; }
+  .node-6 { top: 140px; left: 58px; }
+
+  .second-ring-1 { top: 12px; left: 269px; }
+  .second-ring-2 { top: 115px; right: 8px; }
+  .second-ring-3 { bottom: 115px; right: 8px; }
+  .second-ring-4 { bottom: 12px; left: 269px; }
+  .second-ring-5 { bottom: 115px; left: 8px; }
+  .second-ring-6 { top: 115px; left: 8px; }
 }
 
 @media (max-width: 760px) {
@@ -497,15 +619,37 @@ body {
   }
 
   .map-node {
-    width: 48px;
-    height: 48px;
-    font-size: 0.82rem;
+    width: 58px;
+    height: 78px;
+    gap: 6px;
   }
 
-  .node-1 { top: 22px; left: 156px; }
-  .node-2 { top: 92px; right: 30px; }
-  .node-3 { bottom: 92px; right: 30px; }
-  .node-4 { bottom: 22px; left: 156px; }
-  .node-5 { bottom: 92px; left: 30px; }
-  .node-6 { top: 92px; left: 30px; }
+  .node-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 0.9rem;
+  }
+
+  .node-label {
+    font-size: 0.68rem;
+  }
+
+  .node-1 { top: 18px; left: 151px; }
+  .node-2 { top: 88px; right: 24px; }
+  .node-3 { bottom: 88px; right: 24px; }
+  .node-4 { bottom: 18px; left: 151px; }
+  .node-5 { bottom: 88px; left: 24px; }
+  .node-6 { top: 88px; left: 24px; }
+
+  .second-ring {
+    width: 14px;
+    height: 14px;
+  }
+
+  .second-ring-1 { top: 4px; left: 173px; }
+  .second-ring-2 { top: 63px; right: 6px; }
+  .second-ring-3 { bottom: 63px; right: 6px; }
+  .second-ring-4 { bottom: 4px; left: 173px; }
+  .second-ring-5 { bottom: 63px; left: 6px; }
+  .second-ring-6 { top: 63px; left: 6px; }
 }
