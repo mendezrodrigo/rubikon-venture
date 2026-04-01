@@ -23,12 +23,13 @@ function setDetailCard(node) {
   const city = node.dataset.city;
   const building = node.dataset.building;
   const culture = node.dataset.culture;
+  const initials = node.dataset.initials;
   const id = node.dataset.id;
 
   detailCard.innerHTML = `
     <p class="eyebrow">Selected Connection</p>
     <h3>${name}</h3>
-    <p class="muted">${role} · ${city}</p>
+    <p class="muted">${role} · ${city} · ${initials}</p>
 
     <div class="detail-block">
       <p class="section-label">What they are building</p>
@@ -41,8 +42,8 @@ function setDetailCard(node) {
     </div>
 
     <div class="detail-block">
-      <p class="section-label">Next action</p>
-      <p>Open this person later in the FlowBoard or prepare a contextual ping based on what they are building.</p>
+      <p class="section-label">Opportunity pipeline logic</p>
+      <p>This person can become a warm path, a direct ping, a future intro, or a relevant cluster anchor in your pipeline.</p>
     </div>
   `;
 
@@ -88,9 +89,39 @@ stage.addEventListener('mousemove', (e) => {
   const rotateY = offsetX * 5;
   const rotateX = offsetY * -5;
 
-  stage.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  stage.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
 stage.addEventListener('mouseleave', () => {
-  stage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+  stage.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+});
+
+const searchInput = document.getElementById('flow-search');
+const signalCards = document.querySelectorAll('.signal-card');
+const quickTags = document.querySelectorAll('.quick-tag');
+
+function filterSignals(query) {
+  const normalized = query.trim().toLowerCase();
+
+  signalCards.forEach((card) => {
+    const haystack = (card.dataset.search || '').toLowerCase();
+    const text = card.textContent.toLowerCase();
+    const match = !normalized || haystack.includes(normalized) || text.includes(normalized);
+
+    card.classList.toggle('hidden', !match);
+  });
+}
+
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    filterSignals(e.target.value);
+  });
+}
+
+quickTags.forEach((tag) => {
+  tag.addEventListener('click', () => {
+    const value = tag.textContent.trim();
+    searchInput.value = value;
+    filterSignals(value);
+  });
 });
