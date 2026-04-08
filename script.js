@@ -1,4 +1,4 @@
-const navButtons = document.querySelectorAll('.nav-button');
+const navButtons = document.querySelectorAll('.nav-button[data-view]');
 const views = document.querySelectorAll('.view');
 const feedbackButton = document.getElementById('feedback-button');
 
@@ -13,7 +13,7 @@ navButtons.forEach((button) => {
     document.getElementById(`${targetView}-view`).classList.add('active');
 
     if (feedbackButton) {
-      feedbackButton.style.display = targetView === 'identity' ? 'inline-flex' : 'none';
+      feedbackButton.classList.toggle('visible', targetView === 'identity');
     }
   });
 });
@@ -147,3 +147,7 @@ quickTags.forEach((tag) => {
     tag.classList.add('active');
   });
 });
+
+if (feedbackButton) {
+  feedbackButton.classList.add('visible');
+}
