@@ -27,18 +27,13 @@
         </p>
       </div>
 
-      <div class="header-actions">
-        <nav class="top-nav">
-          <button class="nav-button active" data-view="identity">Identity</button>
-          <button class="nav-button" data-view="network">Connection Map</button>
-          <button class="nav-button" data-view="flowboard">FlowBoard</button>
-        </nav>
-
-        <div class="auth-actions">
-          <button class="auth-button auth-button-secondary">Log in</button>
-          <button class="auth-button auth-button-primary">Sign up</button>
-        </div>
-      </div>
+      <nav class="top-nav">
+        <button class="nav-button active" data-view="identity" type="button">Identity</button>
+        <button class="nav-button" data-view="network" type="button">Connection Map</button>
+        <button class="nav-button" data-view="flowboard" type="button">FlowBoard</button>
+        <button class="nav-button auth-nav-button" type="button">Log in</button>
+        <button class="nav-button auth-nav-button auth-nav-button-primary" type="button">Sign up</button>
+      </nav>
     </header>
 
     <main>
@@ -149,7 +144,7 @@
           </aside>
         </div>
 
-        <button class="feedback-fab" id="feedback-button">Request feedback</button>
+        <button class="feedback-fab visible" id="feedback-button" type="button">Request feedback</button>
       </section>
 
       <section id="network-view" class="view">
@@ -201,34 +196,112 @@
                 <span>You</span>
               </div>
 
-              <button class="map-node node-1" data-id="1" data-name="Lina Hoffmann" data-role="Product Strategist" data-city="Berlin" data-building="A mentor matching layer for technical founders." data-culture="Systems-minded, clear, product-rigorous" data-initials="LH" data-pipeline-title="Product architecture path" data-pipeline-summary="Lina is strongest as a direct collaboration path for product framing and founder matching logic." data-pipeline-1="Refine profile and matching logic" data-pipeline-2="Pressure-test mentor onboarding flow" data-pipeline-3="Map decision criteria for high-fit intros">
+              <button class="map-node node-1"
+                data-id="1"
+                data-name="Filippo de Cristofaro"
+                data-role="Head of Marketing · Entrepreneurship"
+                data-city="Lisbon"
+                data-building="Growth, storytelling, and entrepreneurial positioning across founder ecosystems."
+                data-culture="Fast-moving, expressive, strategic, socially sharp"
+                data-initials="FD"
+                data-pipeline-title="Marketing and ecosystem path"
+                data-pipeline-summary="Filippo is strongest as a branding, visibility, and founder-ecosystem amplifier."
+                data-pipeline-1="Strengthen narrative and public-facing positioning"
+                data-pipeline-2="Refine founder-community visibility"
+                data-pipeline-3="Open collaboration paths through entrepreneurial networks"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">LH</span>
+                <span class="node-label">FD</span>
               </button>
 
-              <button class="map-node node-2" data-id="2" data-name="Marco Silva" data-role="Community Builder" data-city="Lisbon" data-building="A curated founder community for southern Europe." data-culture="Warm, kinetic, socially intelligent" data-initials="MS" data-pipeline-title="Community access path" data-pipeline-summary="Marco is strongest as a warm-intro bridge into founder communities and transnational collaboration circles." data-pipeline-1="Open Lisbon founder circle access" data-pipeline-2="Test community-based onboarding" data-pipeline-3="Use him as a regional cluster anchor">
+              <button class="map-node node-2"
+                data-id="2"
+                data-name="Francesca Centini"
+                data-role="The Modern Renaissance Founder"
+                data-city="Milano"
+                data-building="Intersections of neuroscience, music, art, and modern creative identity."
+                data-culture="Interdisciplinary, reflective, artistic, intellectually ambitious"
+                data-initials="FC"
+                data-pipeline-title="Creative-intellectual synthesis path"
+                data-pipeline-summary="Francesca is strongest where art, science, and identity need to be translated into a coherent concept."
+                data-pipeline-1="Explore identity and culture framing"
+                data-pipeline-2="Bridge artistic and intellectual communities"
+                data-pipeline-3="Develop stronger interdisciplinary signal clusters"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">MS</span>
+                <span class="node-label">FC</span>
               </button>
 
-              <button class="map-node node-3" data-id="3" data-name="Nina Patel" data-role="Research Collaborator" data-city="Munich" data-building="A mobility intelligence concept for cities." data-culture="Analytical, calm, structured" data-initials="NP" data-pipeline-title="Research translation path" data-pipeline-summary="Nina is strongest where structured research needs narrative clarity and systems-level interpretation." data-pipeline-1="Translate research into clearer strategic framing" data-pipeline-2="Support systems narrative for mobility work" data-pipeline-3="Explore joint concept notes or workshops">
+              <button class="map-node node-3"
+                data-id="3"
+                data-name="Matteo Demasi"
+                data-role="Sapio Founder · Cybersecurity · Digital Sovereignty"
+                data-city="Zug"
+                data-building="Cybersecurity and digital sovereignty systems with a strategic European lens."
+                data-culture="Sovereignty-minded, rigorous, technical, long-range"
+                data-initials="MD"
+                data-pipeline-title="Cybersecurity and sovereignty path"
+                data-pipeline-summary="Matteo is strongest as a high-trust node for digital sovereignty, security logic, and serious technical collaboration."
+                data-pipeline-1="Sharpen trust and privacy framing"
+                data-pipeline-2="Map cybersecurity collaboration paths"
+                data-pipeline-3="Anchor digital sovereignty direction in product logic"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">NP</span>
+                <span class="node-label">MD</span>
               </button>
 
-              <button class="map-node node-4" data-id="4" data-name="Adrian Costa" data-role="Designer" data-city="Barcelona" data-building="A design language for collaborative products." data-culture="Visual, conceptual, exacting" data-initials="AC" data-pipeline-title="Design language path" data-pipeline-summary="Adrian is strongest as a design partner for interface clarity, visual systems, and product expression." data-pipeline-1="Sharpen visual identity system" data-pipeline-2="Prototype cleaner interaction patterns" data-pipeline-3="Improve product cohesion across views">
+              <button class="map-node node-4"
+                data-id="4"
+                data-name="Galina Shakhanova"
+                data-role="Founder's Associate DTM · McKinsey & Co"
+                data-city="Berlin"
+                data-building="Operational and strategic support around high-level founder and venture execution."
+                data-culture="Sharp, structured, strategic, execution-oriented"
+                data-initials="GS"
+                data-pipeline-title="Execution and strategic ops path"
+                data-pipeline-summary="Galina is strongest where structure, execution discipline, and founder-level support matter most."
+                data-pipeline-1="Improve execution and prioritization logic"
+                data-pipeline-2="Pressure-test strategic next steps"
+                data-pipeline-3="Strengthen founder-operator coordination"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">AC</span>
+                <span class="node-label">GS</span>
               </button>
 
-              <button class="map-node node-5" data-id="5" data-name="Sofia Klein" data-role="Operations Lead" data-city="Amsterdam" data-building="A smoother system for startup program operations." data-culture="Reliable, operational, low-ego" data-initials="SK" data-pipeline-title="Execution reliability path" data-pipeline-summary="Sofia is strongest as an operations-minded collaborator who can stabilize follow-through and workflow quality." data-pipeline-1="Strengthen follow-up and response systems" data-pipeline-2="Improve collaboration reliability logic" data-pipeline-3="Design cleaner execution handoffs">
+              <button class="map-node node-5"
+                data-id="5"
+                data-name="Ayush Sanghavi"
+                data-role="CEO of CaseSnappy"
+                data-city="New Haven, Connecticut"
+                data-building="Founder-led startup execution with product and company-building focus."
+                data-culture="Founder-driven, ambitious, pragmatic, startup-native"
+                data-initials="AS"
+                data-pipeline-title="Founder-to-founder startup path"
+                data-pipeline-summary="Ayush is strongest as a startup operator node for founder conversations, product traction, and fast-moving execution."
+                data-pipeline-1="Exchange founder-side product lessons"
+                data-pipeline-2="Explore startup collaboration fit"
+                data-pipeline-3="Track possible cross-market venture alignment"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">SK</span>
+                <span class="node-label">AS</span>
               </button>
 
-              <button class="map-node node-6" data-id="6" data-name="Jonas Meyer" data-role="Ecosystem Connector" data-city="Zurich" data-building="An ecosystem map for startup-to-corporate collaboration." data-culture="Connector-minded, strategic, long-term" data-initials="JM" data-pipeline-title="Ecosystem leverage path" data-pipeline-summary="Jonas is strongest as a long-range strategic connector across ecosystems, institutions, and corporate-founder interfaces." data-pipeline-1="Surface institutional collaboration paths" data-pipeline-2="Map startup-to-corporate bridge opportunities" data-pipeline-3="Track him as a long-term leverage node">
+              <button class="map-node node-6"
+                data-id="6"
+                data-name="Kostas Mihalopoulos"
+                data-role="CEO of Runaway Truck Wash · Pharmaceutical Sales"
+                data-city="Austin, Texas"
+                data-building="Operational business growth across service execution, sales, and commercial relationships."
+                data-culture="Commercial, resilient, relationship-driven, practical"
+                data-initials="KM"
+                data-pipeline-title="Commercial growth path"
+                data-pipeline-summary="Kostas is strongest where sales instinct, real-world execution, and business growth discipline overlap."
+                data-pipeline-1="Explore sales and growth strategy parallels"
+                data-pipeline-2="Learn from operator-led execution"
+                data-pipeline-3="Map commercial collaboration angles"
+                type="button">
                 <span class="node-icon">◖◗</span>
-                <span class="node-label">JM</span>
+                <span class="node-label">KM</span>
               </button>
             </div>
           </article>
@@ -267,14 +340,14 @@
             </div>
 
             <div class="quick-tags" id="quick-tags">
-              <button class="quick-tag">Generalists</button>
-              <button class="quick-tag">Polymaths</button>
-              <button class="quick-tag">Vibe coding</button>
-              <button class="quick-tag">Data scientists</button>
-              <button class="quick-tag">Cybersecurity</button>
-              <button class="quick-tag">Cross-cultural</button>
-              <button class="quick-tag">Transnational</button>
-              <button class="quick-tag">Agentic startups</button>
+              <button class="quick-tag" type="button">Generalists</button>
+              <button class="quick-tag" type="button">Polymaths</button>
+              <button class="quick-tag" type="button">Vibe coding</button>
+              <button class="quick-tag" type="button">Data scientists</button>
+              <button class="quick-tag" type="button">Cybersecurity</button>
+              <button class="quick-tag" type="button">Cross-cultural</button>
+              <button class="quick-tag" type="button">Transnational</button>
+              <button class="quick-tag" type="button">Agentic startups</button>
             </div>
 
             <div class="signals-list" id="signals-list">
@@ -284,7 +357,7 @@
                 <p>
                   Strong match with startup ecosystems, narrative framing, and strategic product positioning.
                 </p>
-                <button class="ghost-action">Request intro</button>
+                <button class="ghost-action" type="button">Request intro</button>
               </div>
 
               <div class="signal-card" data-search="agentic startups ai automation builders operators generalists polymaths">
@@ -293,7 +366,7 @@
                 <p>
                   High signal around builders who can move between product, research, systems, and community.
                 </p>
-                <button class="ghost-action">Explore fit</button>
+                <button class="ghost-action" type="button">Explore fit</button>
               </div>
 
               <div class="signal-card" data-search="polymaths interdisciplinary talent transnational cross-cultural">
@@ -302,7 +375,7 @@
                 <p>
                   A strong fit for people who think across strategy, narrative, product, and ecosystems.
                 </p>
-                <button class="ghost-action">See cluster</button>
+                <button class="ghost-action" type="button">See cluster</button>
               </div>
 
               <div class="signal-card" data-search="vibe coding design interface prototyping creative coding">
@@ -311,25 +384,7 @@
                 <p>
                   Designers, storytellers, and technical generalists are converging around faster concept execution.
                 </p>
-                <button class="ghost-action">Join thread</button>
-              </div>
-
-              <div class="signal-card" data-search="lisbon community founder southern europe transnational cross-cultural">
-                <p class="signal-type">Community</p>
-                <h3>Lisbon founder circles are opening more to transnational collaborators</h3>
-                <p>
-                  There is growing openness toward cross-border operators, community builders, and cultural translators.
-                </p>
-                <button class="ghost-action">Open path</button>
-              </div>
-
-              <div class="signal-card" data-search="munich requests systems research mobility cross-cultural narrative">
-                <p class="signal-type">Request</p>
-                <h3>Mobility and systems research groups need sharper narrative builders</h3>
-                <p>
-                  Good fit for someone who can translate technical work into strategic clarity and collaboration.
-                </p>
-                <button class="ghost-action">Offer help</button>
+                <button class="ghost-action" type="button">Join thread</button>
               </div>
 
               <div class="signal-card" data-search="data scientists signal ranking matching trust graphs analytics">
@@ -338,7 +393,7 @@
                 <p>
                   Strong relevance for products that need recommendation logic, fit scoring, and collaboration graphs.
                 </p>
-                <button class="ghost-action">Map fit</button>
+                <button class="ghost-action" type="button">Map fit</button>
               </div>
 
               <div class="signal-card" data-search="cybersecurity trust access identity systems privacy secure collaboration">
@@ -347,7 +402,7 @@
                 <p>
                   Identity, permissions, privacy, and secure access are no longer side issues. They define product credibility.
                 </p>
-                <button class="ghost-action">Find experts</button>
+                <button class="ghost-action" type="button">Find experts</button>
               </div>
             </div>
           </article>
@@ -364,26 +419,26 @@
             <div class="pipeline-list">
               <div class="pipeline-card">
                 <p class="pipeline-type">Warm intro</p>
-                <h4>Marco Silva → Lisbon founder community</h4>
-                <p>Potential path into southern Europe startup circles through community-building context.</p>
+                <h4>Founder and ecosystem operators in Europe</h4>
+                <p>High-potential paths through entrepreneurial and cross-border communities.</p>
               </div>
 
               <div class="pipeline-card">
                 <p class="pipeline-type">Potential match</p>
                 <h4>Generalist operator roles in agentic startups</h4>
-                <p>High overlap with cross-functional, strategic, and fast-moving startup work.</p>
+                <p>Strong overlap with cross-functional, strategic, and fast-moving startup work.</p>
               </div>
 
               <div class="pipeline-card">
                 <p class="pipeline-type">Capability cluster</p>
-                <h4>Data scientists for ranking, fit, and trust signals</h4>
-                <p>Useful for matching logic, collaboration mapping, and more intelligent opportunity sorting.</p>
+                <h4>Data scientists and cybersecurity builders</h4>
+                <p>Useful for trust-layer logic, ranking systems, digital sovereignty, and secure collaboration.</p>
               </div>
 
               <div class="pipeline-card">
-                <p class="pipeline-type">Open request</p>
-                <h4>Cybersecurity support for identity-first systems</h4>
-                <p>One of the clearest places where product credibility and technical trust can be improved fast.</p>
+                <p class="pipeline-type">Open direction</p>
+                <h4>Cross-cultural founder networks and interdisciplinary builders</h4>
+                <p>One of the strongest long-range clusters for Rubikon’s positioning.</p>
               </div>
             </div>
           </aside>
@@ -391,6 +446,10 @@
       </section>
     </main>
   </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
   <script src="script.js"></script>
 </body>
