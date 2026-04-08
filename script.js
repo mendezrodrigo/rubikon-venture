@@ -134,6 +134,10 @@ function filterSignals(query) {
 if (searchInput) {
   searchInput.addEventListener('input', (e) => {
     filterSignals(e.target.value);
+
+    if (!e.target.value.trim()) {
+      quickTags.forEach((tag) => tag.classList.remove('active'));
+    }
   });
 }
 
