@@ -65,34 +65,23 @@ body {
 }
 
 .brand-logo {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.03);
-  box-shadow: 0 0 30px rgba(139, 188, 255, 0.12);
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 30px rgba(139, 188, 255, 0.08);
   overflow: hidden;
 }
 
-.brand-logo-outer,
-.brand-logo-inner {
-  position: absolute;
-  inset: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  border-radius: 8px;
-}
-
-.brand-logo-outer {
-  width: 24px;
-  height: 24px;
-  border: 1px solid rgba(139, 188, 255, 0.55);
-}
-
-.brand-logo-inner {
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(135deg, #d8ebff, #7db5ff);
+.brand-logo-svg {
+  width: 92%;
+  height: 92%;
+  display: block;
 }
 
 .brand-mark {
@@ -172,7 +161,7 @@ body {
 }
 
 .hero-block {
-  max-width: 980px;
+  max-width: 1040px;
   margin-bottom: 40px;
 }
 
@@ -186,26 +175,32 @@ body {
 
 .hero-block h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 6vw, 5.8rem);
-  line-height: 0.96;
-  letter-spacing: -0.05em;
   font-weight: 600;
-  max-width: 1100px;
+  max-width: 1120px;
 }
 
-.identity-hero-title {
+.identity-hero-title,
+.section-hero-title {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
-.identity-hero-title .line-main {
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
+.identity-hero-title .line-main,
+.section-hero-title .line-main {
+  display: block;
+  font-size: clamp(2.35rem, 5vw, 4.55rem);
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+  word-spacing: 0.02em;
 }
 
 .identity-hero-title .line-sub {
-  font-size: clamp(1.35rem, 2.8vw, 2.2rem);
-  line-height: 1.08;
+  display: block;
+  font-size: clamp(1.32rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  word-spacing: 0.08em;
   color: #dbe5f3;
 }
 
@@ -735,16 +730,26 @@ body {
     margin-left: 0;
   }
 
+  .brand-logo {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
   .brand-mark {
     font-size: 2.4rem;
   }
 
-  .hero-block h1 {
-    font-size: 2.2rem;
+  .identity-hero-title .line-main,
+  .section-hero-title .line-main {
+    font-size: 2.15rem;
+    line-height: 1.04;
   }
 
   .identity-hero-title .line-sub {
-    font-size: 1.15rem;
+    font-size: 1.14rem;
+    line-height: 1.24;
+    word-spacing: 0.06em;
   }
 
   .network-stage {
