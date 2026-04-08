@@ -1,5 +1,6 @@
 const navButtons = document.querySelectorAll('.nav-button');
 const views = document.querySelectorAll('.view');
+const feedbackButton = document.getElementById('feedback-button');
 
 navButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -10,6 +11,10 @@ navButtons.forEach((button) => {
 
     button.classList.add('active');
     document.getElementById(`${targetView}-view`).classList.add('active');
+
+    if (feedbackButton) {
+      feedbackButton.style.display = targetView === 'identity' ? 'inline-flex' : 'none';
+    }
   });
 });
 
@@ -25,6 +30,12 @@ function setDetailCard(node) {
   const culture = node.dataset.culture;
   const initials = node.dataset.initials;
   const id = node.dataset.id;
+
+  const pipelineTitle = node.dataset.pipelineTitle;
+  const pipelineSummary = node.dataset.pipelineSummary;
+  const pipeline1 = node.dataset.pipeline1;
+  const pipeline2 = node.dataset.pipeline2;
+  const pipeline3 = node.dataset.pipeline3;
 
   detailCard.innerHTML = `
     <p class="eyebrow">Selected Connection</p>
@@ -42,8 +53,14 @@ function setDetailCard(node) {
     </div>
 
     <div class="detail-block">
-      <p class="section-label">Opportunity pipeline logic</p>
-      <p>This person can become a warm path, a direct ping, a future intro, or a relevant cluster anchor in your pipeline.</p>
+      <p class="section-label">Opportunity pipeline</p>
+      <h4>${pipelineTitle}</h4>
+      <p class="muted detail-summary">${pipelineSummary}</p>
+      <ul class="detail-pipeline-list">
+        <li>${pipeline1}</li>
+        <li>${pipeline2}</li>
+        <li>${pipeline3}</li>
+      </ul>
     </div>
   `;
 
@@ -59,8 +76,8 @@ function highlightLines(id) {
     if (!line) continue;
 
     if (String(i) === String(id)) {
-      line.style.stroke = 'rgba(110,144,183,0.85)';
-      line.style.strokeWidth = '2.3';
+      line.style.stroke = 'rgba(134, 188, 255, 0.95)';
+      line.style.strokeWidth = '2.8';
       line.style.opacity = '1';
     } else {
       line.style.stroke = 'rgba(255,255,255,0.14)';
@@ -75,26 +92,28 @@ nodes.forEach((node) => {
   node.addEventListener('click', () => setDetailCard(node));
 });
 
-stage.addEventListener('mousemove', (e) => {
-  const rect = stage.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+if (stage) {
+  stage.addEventListener('mousemove', (e) => {
+    const rect = stage.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-  const offsetX = (x - centerX) / centerX;
-  const offsetY = (y - centerY) / centerY;
+    const offsetX = (x - centerX) / centerX;
+    const offsetY = (y - centerY) / centerY;
 
-  const rotateY = offsetX * 5;
-  const rotateX = offsetY * -5;
+    const rotateY = offsetX * 5;
+    const rotateX = offsetY * -5;
 
-  stage.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
+    stage.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
 
-stage.addEventListener('mouseleave', () => {
-  stage.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
-});
+  stage.addEventListener('mouseleave', () => {
+    stage.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+  });
+}
 
 const searchInput = document.getElementById('flow-search');
 const signalCards = document.querySelectorAll('.signal-card');
@@ -123,5 +142,8 @@ quickTags.forEach((tag) => {
     const value = tag.textContent.trim();
     searchInput.value = value;
     filterSignals(value);
+
+    quickTags.forEach((t) => t.classList.remove('active'));
+    tag.classList.add('active');
   });
 });
